@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>maskk</title>
+{% endblock %}
+
+{% block content %}
+<form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload">
+    <input name="token" type="hidden" value="{{token}}">
+    <input type="submit" value="Upload">
+</form>
+{% endblock %}
