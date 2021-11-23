@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>maskk</title>
+<title>face mask</title>
 {% endblock %}
 
 {% block content %}
-<form action="/" method="post" enctype="multipart/form-data">
-    <input type="file" name="upload">
-    <input name="token" type="hidden" value="{{token}}">
-    <input type="submit" value="Upload">
-</form>
+<div class="container mt-5">
+    <h1 class="text-center">Sample</h1>
+    <p class="text-center">証明写真をアップロードするとマスク付きの証明写真に合成します。</p>
+    <div class="row mx-md-n5 mb-4">
+        <div class="col px-md-5 text-center">
+        <p>upload</p>
+        <img src="static/img/sample.jpg" alt="" class="img-fluid taext"></div>
+        <div class="col px-md-5 text-center">
+            <p>change</p>
+            <img src="static/img/sample_output.jpg" alt="" class="img-fluid">
+        </div>
+      </div>
+</div>
+<div class="container mt-5">
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="upload" class="mb-2">
+        <input name="token" type="hidden" value="{{token}}">
+        <input type="submit" value="アップロード">
+    </form>
+</div>
+
 {% endblock %}

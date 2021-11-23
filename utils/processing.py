@@ -28,11 +28,11 @@ class Processing():
         img_gray = cv2.cvtColor(image_file, cv2.COLOR_BGR2GRAY)
 
         #detectMultiScaleで検出
-        face_list = cascade.detectMultiScale(img_gray, scaleFactor=1.1, minNeighbors=2, minSize=(100, 100))
+        face_list = cascade.detectMultiScale(img_gray,1.1,50)
         
-        face_list02 = cascade02.detectMultiScale(img_gray,scaleFactor=1.1, minNeighbors=2, minSize=(100, 100))
+        face_list02 = cascade02.detectMultiScale(img_gray,1.1,50)
         
-        face_list03 = cascade03.detectMultiScale(img_gray,scaleFactor=1.1, minNeighbors=2, minSize=(100, 100))
+        face_list03 = cascade03.detectMultiScale(img_gray,1.1,50)
         
         if(len(face_list) > 0 and len(face_list02) > 0 and len(face_list03) > 1):
             x01 = face_list[0][0]
@@ -71,13 +71,14 @@ class Processing():
             im2 = Image.open('static/img/mask.png').rotate(-atan,expand=1)
             
             
+
             
-            im22 = im2.resize((math.floor(w01 * 1.5), h01 + nose_h01))
+            im22 = im2.resize((math.floor(w01 * 2.0), h01 + nose_h01))
             resize_name = datetime.now().strftime("%Y%m%d_%H%M%S_")+ werkzeug.utils.secure_filename("mask_resize.png")
             
             im22.save(os.path.join(path,resize_name))
             back_im = im1.copy()
-            back_im.paste(im22, (math.floor(x01 / 1.18), nose_y01), im22.split()[0])
+            back_im.paste(im22, (math.floor(x01 - (w01 / 2)), nose_y01), im22.split()[0])
             back_im.save(os.path.join(path,"change_" + img_file))
             os.remove(os.path.join(path,resize_name))
             

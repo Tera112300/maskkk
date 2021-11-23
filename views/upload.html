@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>maskk</title>
+<title>face mask</title>
 {% endblock %}
 
 {% block content %}
-<p><img src="static/img/output/{{img_path}}" alt=""></p>
-<p><img src="static/img/output/{{img_change}}" alt=""></p>
-<p><a href="download/img/output/{{img_change}}">ダウンロード</a></p>
+<div class="container mt-5">
+    <div class="row mx-md-n5 mb-4">
+        <div class="col px-md-5 text-center">
+            <p>upload</p>
+            <img src="static/img/output/{{img_path}}" alt="" class="img-fluid taext"></div>
+        <div class="col px-md-5 text-center">
+            <p>change</p>
+            <img src="static/img/output/{{img_change}}" alt="" class="img-fluid"></div>
+      </div>
+      <p class="text-center"><a class="btn btn-primary" href="download/img/output/{{img_change}}" role="button">ダウンロード</a></p>
+</div>
+
 {% endblock %}

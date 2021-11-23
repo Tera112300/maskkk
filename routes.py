@@ -1,5 +1,3 @@
-#!/usr/local/bin/python3
-
 from bottle import Bottle, redirect,route,static_file,jinja2_template as template,request
 from beaker.middleware import SessionMiddleware
 import secrets
